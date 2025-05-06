@@ -1,3 +1,4 @@
+import java.util.*;
 class TrieNode
 {
     TrieNode []children;
@@ -12,7 +13,7 @@ class TrieNode
 }
  class Trie
 {
-    TrieNode root;
+   static TrieNode root;
 
     public Trie()
     {
@@ -70,6 +71,23 @@ class TrieNode
         return true;
     }
 
+    public void printTrie(TrieNode curr ,String str,ArrayList<Integer>res)
+    {
+        if(curr==null)
+        return ;
+
+
+        for(int i=0;i<10;i++)
+        {
+            String newStr=str+Integer.toString(i);
+            if(curr.children[i]!=null)
+            {
+                res.add(Integer.parseInt(newStr));
+            }
+            printTrie(curr.children[i],newStr,res);
+        }
+    }
+
 
     public static void main(String args[])
     {
@@ -113,5 +131,8 @@ class TrieNode
 
                 }
              }
+        ArrayList<Integer>res=new ArrayList<>();
+        trie.printTrie(root,"",res);
+             System.out.println(res);
     }
 }
