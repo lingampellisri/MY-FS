@@ -58,7 +58,7 @@ class TrieNode
     {
         TrieNode curr=root;
 
-        for(char c:key.toCharArray())
+        for(char c : key.toCharArray())
         {
             if(curr.children[c-'a']==null)
             {

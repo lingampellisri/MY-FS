@@ -120,9 +120,6 @@ class Trie{
             System.out.println(trie.indexPair(text));
 
 
-
-
-
     }
 
 
