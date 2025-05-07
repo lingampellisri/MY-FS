@@ -52,6 +52,26 @@ class ConnectedComponentsBFS
 
         }
 
+        public static int countConnectedComponent(int n ,int [][]edges)
+        {
+            buildAdjList(n,edges);
+
+            int count=0;
+
+            boolean[]visited=new boolean[n];
+
+            for(int i=0;i<n;i++)
+            {
+                if(!visited[i])
+                {
+                    bfs(i,visited);
+                    count++;
+                }
+            }
+            return count;
+
+        }
+
 
 
     public static void main(String args[])
@@ -70,5 +90,8 @@ class ConnectedComponentsBFS
 
             }
         }
+
+        System.out.println(countConnectedComponent(n,edges));
+
     }
 }
