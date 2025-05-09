@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.ArrayList;
 class TrieNode
 {
     TrieNode []children;
@@ -52,7 +52,6 @@ class TrieNode
         return curr.isEndOfWord;
 
     }
-
 
     public boolean prefix(String key)
     {
