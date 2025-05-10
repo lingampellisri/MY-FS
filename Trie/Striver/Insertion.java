@@ -1,3 +1,4 @@
+
 class TrieNode
 {
     TrieNode children[];
@@ -69,7 +70,48 @@ class Trie{
 
     public static void main(String args[])
     {
-        System.out.println("Heyy trie tutorials");
+        // System.out.println("Heyy trie tutorials");
+
+        Trie trie=new Trie();
+
+
+        String[] arr
+            = {"and", "ant", "do", "dad"};
+
+            for(String str:arr)
+            {
+                trie.insert(str);
+            }
+
+System.out.println("Searching the words");
+
+             String[] searchKeys = { "do", "gee", "bat","and","ant" };
+
+
+             for(String str:searchKeys)
+             {
+                System.out.println(trie.search(str));
+             }
+
+
+             System.out.println("Prefix the words");
+
+
+              String[] prefixKeys = { "d","ge", "ba", "do", "de" ,"and","ant","an"};
+
+             for(String s: prefixKeys)
+             {
+                if(trie.isPrefix(s))
+                {
+                    System.out.println(s+ " :  prefix Found");
+                }
+                     else{
+
+                    System.out.println(s+ " : prefix Not Found");
+
+                }
+             }
+
 
 
     }
