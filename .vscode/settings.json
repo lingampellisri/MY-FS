@@ -1,0 +1,18 @@
+{
+    "java.project.sourcePaths": [
+        ".",
+        "BST",
+        "Graphs",
+        "Trie"
+    ],
+    "java.project.referencedLibraries": {
+        "include": [
+            "mysql-connector-j-8.4.0\\mysql-connector-j-8.4.0.jar",
+            "mysql-connector-j-8.4.0/**/*.jar",
+            "c:\\Users\\DELL\\Downloads\\mysql-connector-j-8.4.0\\mysql-connector-j-8.4.0\\mysql-connector-j-8.4.0.jar"
+        ],
+        "exclude": [
+            "c:\\Users\\DELL\\Downloads\\mysql-connector-j-8.4.0\\mysql-connector-j-8.4.0\\mysql-connector-j-8.4.0.jar"
+        ]
+    }
+}
