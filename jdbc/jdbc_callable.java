@@ -1,11 +1,13 @@
 package jdbc;
 
+import java.lang.ProcessBuilder.Redirect.Type;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Types;
 import java.sql.PreparedStatement;
 
 /**
@@ -21,7 +23,7 @@ public class jdbc_callable {
         
         String user="root";
         String password="sri@123";
-          String url = "jdbc:mysql://localhost:3306/dbms";
+          String url = "jdbc:mysql://localhost:3306/test";
 
 
 
@@ -47,23 +49,16 @@ public class jdbc_callable {
               }
 
           
-            cs=con.prepareCall("{call filterbyage(?)}");
+            cs=con.prepareCall("{call empCount(?)}");
             cs.setInt(1, 20);
-           
-            res=cs.executeQuery();
+            
+              cs.registerOutParameter(1, Types.INTEGER);
 
-        
-             while (res.next()) {
+              cs.execute();
 
-                System.out.print(res.getInt("id")+" ,");
-                System.out.print(res.getString("name")+", ");
-                 System.out.print(res.getInt("age"));
-                 System.out.println();
-                
-             }
-
-                
-              
+              int count=cs.getInt(1);
+              System.out.println(count);
+      
 
         }
   
@@ -90,3 +85,5 @@ public class jdbc_callable {
     }
     
 }
+
+
