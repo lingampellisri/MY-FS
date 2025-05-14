@@ -1,27 +1,36 @@
 package jdbc;
 
-import java.sql.SQLException;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.Statement;
-
-import javax.sql.rowset.spi.SyncResolver;
-
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.PreparedStatement;
 
-public class jdbc2 {
+/**
+ * prepareStatement code
+ * A PreparedStatement represents a precompiled SQL statement 
+ * that can be executed multiple times. It accepts parameterized SQL queries, 
+ * with ? as placeholders for parameters, which can be set dynamically.
+ */
+public class jdbc_callable {
 
     public static void main(String[] args) {
 
+        
         String user="root";
         String password="sri@123";
           String url = "jdbc:mysql://localhost:3306/dbms";
-          String query="insert into amazon value(5,'KamalHasssan',24)";
-        // String query="select * from amazon";
+
+
 
           Connection con=null;
           Statement stmt=null;
           ResultSet res=null;
+          PreparedStatement psstmt=null;
+          CallableStatement cs=null;
+
 
         try{
 
@@ -37,28 +46,25 @@ public class jdbc2 {
                 return; 
               }
 
-               stmt= con.createStatement();
-                //  res= stmt.executeQuery(query);
-                int upres=stmt.executeUpdate(query);
-                if(upres>0)
-                System.out.println(upres+ " : Data Inserted");
-                else{
-                    System.out.println("Fail to insert");
-                }
+          
+            cs=con.prepareCall("{call filterbyage(?)}");
+            cs.setInt(1, 20);
+           
+            res=cs.executeQuery();
 
+        
+             while (res.next()) {
 
-            //  while (res.next()) {
-
-            //     System.out.print(res.getInt("id")+" ,");
-            //     System.out.print(res.getString("name")+", ");
-            //      System.out.print(res.getInt("age"));
-            //      System.out.println();
+                System.out.print(res.getInt("id")+" ,");
+                System.out.print(res.getString("name")+", ");
+                 System.out.print(res.getInt("age"));
+                 System.out.println();
                 
-            //  }
+             }
 
+                
+              
 
-
-  
         }
   
         catch (ClassNotFoundException | SQLException e) 
