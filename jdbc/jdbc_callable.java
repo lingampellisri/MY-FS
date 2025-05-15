@@ -11,10 +11,10 @@ import java.sql.Types;
 import java.sql.PreparedStatement;
 
 /**
- * prepareStatement code
- * A PreparedStatement represents a precompiled SQL statement 
- * that can be executed multiple times. It accepts parameterized SQL queries, 
- * with ? as placeholders for parameters, which can be set dynamically.
+A CallableStatement is an interface in Java that is used to execute SQL stored procedures.
+ It extends the PreparedStatement interface and provides methods to handle input and output parameters. 
+ Stored procedures are precompiled SQL statements that can be executed by the database server, 
+ which can improve performance and encapsulate business logic.
  */
 public class jdbc_callable {
 
