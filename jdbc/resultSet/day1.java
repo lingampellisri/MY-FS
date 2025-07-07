@@ -99,7 +99,7 @@ public class day1 {
                         res.getInt("deptno"));
             }
 
-            res.ins
+        
 
 
 
